@@ -1,15 +1,17 @@
-// Declaration merging: extend Teacher inside the same namespace
+/// <reference path="Teacher.ts" />
+/// <reference path="Subject.ts" />
+
 namespace Subjects {
   export interface Teacher {
     experienceTeachingC?: number;
   }
 
   export class Cpp extends Subject {
-    public getRequirements(): string {
+    getRequirements(): string {
       return 'Here is the list of requirements for Cpp';
     }
 
-    public getAvailableTeacher(): string {
+    getAvailableTeacher(): string {
       if (!this.teacher || !this.teacher.experienceTeachingC) {
         return 'No available teacher';
       }

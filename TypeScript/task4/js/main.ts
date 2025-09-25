@@ -1,26 +1,27 @@
-/// <reference path="./subjects/Teacher.ts" />
-/// <reference path="./subjects/Subject.ts" />
-/// <reference path="./subjects/Cpp.ts" />
-/// <reference path="./subjects/React.ts" />
-/// <reference path="./subjects/Java.ts" />
+import './subjects/Teacher';
+import './subjects/Subject';
+import './subjects/Cpp';
+import './subjects/React';
+import './subjects/Java';
 
-const teacher: Subjects.Teacher = {
-  firstName: 'Guillaume',
-  lastName: 'Salva',
-  experienceTeachingC: 3
-};
+const S = (globalThis as any).Subjects;
 
-const cpp = new Subjects.Cpp();
-cpp.setTeacher(teacher);
+const teacherC = { firstName: 'Guillaume', lastName: 'Salva', experienceTeachingC: 3 };
+const cpp = new S.Cpp();
+cpp.setTeacher(teacherC);
 console.log(cpp.getRequirements());
 console.log(cpp.getAvailableTeacher());
 
-const react = new Subjects.React();
-react.setTeacher({ firstName: 'Ana', lastName: 'Delgado' }); // no React experience
-console.log(react.getRequirements());
-console.log(react.getAvailableTeacher());
+// React — no React experience → not available
+const teacherReact = { firstName: 'Ana', lastName: 'Delgado' };
+const react = new S.React();
+react.setTeacher(teacherReact);
+console.log(react.getRequirements());     // Here is the list of requirements for React
+console.log(react.getAvailableTeacher()); // No available teacher
 
-const java = new Subjects.Java();
-java.setTeacher({ firstName: 'Luis', lastName: 'Méndez', experienceTeachingJava: 1 });
-console.log(java.getRequirements());
-console.log(java.getAvailableTeacher());
+// Java — teacher has Java experience → available
+const teacherJava = { firstName: 'Luis', lastName: 'Méndez', experienceTeachingJava: 1 };
+const java = new S.Java();
+java.setTeacher(teacherJava);
+console.log(java.getRequirements());      // Here is the list of requirements for Java
+console.log(java.getAvailableTeacher());  // Available Teacher: Luis

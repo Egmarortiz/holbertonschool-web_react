@@ -4,3 +4,5 @@ namespace Subjects {
     lastName: string;
   }
 }
+
+(globalThis as any).Subjects = Object.assign((globalThis as any).Subjects || {}, Subjects);
