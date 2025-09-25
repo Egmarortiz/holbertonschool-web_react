@@ -1,11 +1,12 @@
-/// <reference path="Teacher.ts" />
+import type Teacher from './Teacher';
 
-namespace Subjects {
-  export class Subject {
-    protected teacher?: Teacher;
+export default abstract class Subject {
+  protected teacher: Teacher | null = null;
 
-    setTeacher(teacher: Teacher): void {
-      this.teacher = teacher;
-    }
+  setTeacher(teacher: Teacher): void {
+    this.teacher = teacher;
   }
+
+  abstract getRequirements(): string;
+  abstract getAvailableTeacher(): string;
 }

@@ -1,32 +1,27 @@
-/// <reference path="subjects/Teacher.ts" />
-/// <reference path="subjects/Subject.ts" />
-/// <reference path="subjects/Cpp.ts" />
-/// <reference path="subjects/React.ts" />
-/// <reference path="subjects/Java.ts" />
+import * as Subjects from './subjects';
 
 const cpp = new Subjects.Cpp();
-const react = new Subjects.React();
 const java = new Subjects.Java();
+const react = new Subjects.React();
 
-const teacher: Subjects.Teacher = {
+const cTeacher: Subjects.Teacher = {
   firstName: 'John',
   lastName: 'Doe',
-  experienceTeachingC: 5,
-  experienceTeachingJava: 3,
+  experienceTeachingC: 10,
 };
 
-cpp.setTeacher(teacher);
-react.setTeacher(teacher);
-java.setTeacher(teacher);
+cpp.setTeacher(cTeacher);
+java.setTeacher(cTeacher);
+react.setTeacher(cTeacher);
 
 console.log('C++');
 console.log(cpp.getRequirements());
 console.log(cpp.getAvailableTeacher());
 
-console.log('React');
-console.log(react.getRequirements());
-console.log(react.getAvailableTeacher());
-
 console.log('Java');
 console.log(java.getRequirements());
 console.log(java.getAvailableTeacher());
+
+console.log('React');
+console.log(react.getRequirements());
+console.log(react.getAvailableTeacher());
